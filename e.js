@@ -311,7 +311,9 @@ async function getFile(id, teacherUser, onprogress) {
 
     var data = chunks.join("");
 
-    return data;
+    var blob = await (await fetch("data:" + mimeType + ";base64," + data));
+
+    return blob;
 }
 
 // Do it!
